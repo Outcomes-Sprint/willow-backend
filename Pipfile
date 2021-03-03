@@ -10,6 +10,7 @@ gunicorn = "*"
 djoser = "*"
 django-cors-headers = "*"
 whitenoise = "*"
+djangorestframework = "*"
 
 [dev-packages]
 
