@@ -50,6 +50,8 @@ INSTALLED_APPS = [
 
     # apps
     'users',
+    'properties',
+    'donations',
 ]
 
 MIDDLEWARE = [
