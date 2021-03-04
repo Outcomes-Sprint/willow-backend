@@ -45,11 +45,10 @@ INSTALLED_APPS = [
     # dependencies
     'corsheaders',
     'djoser',
-
-    # apps
-    'django_willow_be',
     'rest_framework',
     'rest_framework.authtoken',
+
+    # apps
     'users',
 ]
 
