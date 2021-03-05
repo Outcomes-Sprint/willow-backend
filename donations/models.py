@@ -5,5 +5,8 @@ from django.db import models
 class Donation(models.Model):
     name = models.CharField(max_length=40, blank=False)
     email = models.EmailField(max_length=255, unique=True)
-    amount = models.PositiveIntegerField(blank=True, null=True)
-    # date = models.DateField(auto_now=True)
+    amount = models.PositiveIntegerField(blank=False, null=True)
+    date = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.name
