@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import ProperyViewSet
+from .views import PropertyViewSet
 
 router = DefaultRouter()
-router.register(r'properties', ProperyViewSet, basename='property')
+router.register(r'properties', PropertyViewSet, basename='property')
 urlpatterns = router.urls

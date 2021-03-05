@@ -12,3 +12,5 @@ class Property(models.Model):
     donations = models.ForeignKey(Donation, on_delete=models.CASCADE, related_name='donations', blank=False)
     approved = models.BooleanField(null=True)
     
+    def __str__(self):
+        return self.user
