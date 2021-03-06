@@ -22,4 +22,5 @@ urlpatterns = [
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
     path('', include('users.urls')),
     path('', include('donations.urls')),
+    path('', include('properties.urls')),
 ]
