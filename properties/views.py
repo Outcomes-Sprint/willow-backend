@@ -11,7 +11,10 @@ class PropertyViewSet(viewsets.ModelViewSet):
     permission_classes = [IsOwner]
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        if self.request.user.is_superuser:
+            serializer.save()
+        else:
+            serializer.save(user=self.request.user)
 
     def get_queryset(self):
         if self.request.user.is_superuser:
