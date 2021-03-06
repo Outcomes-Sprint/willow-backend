@@ -9,6 +9,7 @@ from .serializers import PropertySerializer
 class PropertyViewSet(viewsets.ModelViewSet):
     serializer_class = PropertySerializer
     queryset = Property.objects.all()
+    
 
     def get_queryset(self, *args, **kwargs):
         return Property.objects.all()
