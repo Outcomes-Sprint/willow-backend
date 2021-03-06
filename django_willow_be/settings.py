@@ -150,7 +150,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
-AUTH_USER_MODEL='users.User'
+AUTH_USER_MODEL = 'users.User'
 
 DJOSER = {
     'LOGIN_FIELD': 'email',

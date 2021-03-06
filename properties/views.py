@@ -2,17 +2,32 @@ from django.shortcuts import render
 from rest_framework import viewsets, response
 from .models import Property
 from .serializers import PropertySerializer
-# from rest_framework.permissions import IsAuthenticated
-# from .permissions import IsOwner
+from rest_framework.permissions import IsAuthenticated
+from .permissions import IsOwner
 # Create your views here
+
+# class PropertyViewSet(viewsets.ModelViewSet):
+#     serializer_class = PropertySerializer
+#     queryset = Property.objects.all()
+    
+
+#     def get_queryset(self, *args, **kwargs):
+#         return Property.objects.all()
+
+#     def perform_create(self, serializer):
+#         serializer.save()
 
 class PropertyViewSet(viewsets.ModelViewSet):
     serializer_class = PropertySerializer
-    queryset = Property.objects.all()
-    
-
-    def get_queryset(self, *args, **kwargs):
-        return Property.objects.all()
+    permission_classes = [IsOwner]
 
     def perform_create(self, serializer):
-        serializer.save()
+        serializer.save(user=self.request.user)
+
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            queryset = Property.objects.all()
+        else:
+            queryset = Property.objects.filter(user=self.request.user)
+
+        return queryset
