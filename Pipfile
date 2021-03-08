@@ -11,6 +11,9 @@ djoser = "*"
 django-cors-headers = "*"
 whitenoise = "*"
 djangorestframework = "*"
+django = "*"
+django-extensions = "*"
+ipython = "*"
 
 [dev-packages]
 
