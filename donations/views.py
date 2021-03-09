@@ -24,9 +24,9 @@ class DonationViewSet(viewsets.ModelViewSet):
 #         serializer.save()
 
 #     def get_queryset(self):
-#         # if self.request.user.is_superuser:
-#         queryset = Donation.objects.all()
-#         # else:
-#         #     queryset = Donation.objects.filter(user=self.request.user)
+#         if self.request.user.is_superuser:
+#             queryset = Donation.objects.all()
+#         else:
+#             queryset = Donation.objects.filter(property=self.request.property)
 
 #         return queryset
