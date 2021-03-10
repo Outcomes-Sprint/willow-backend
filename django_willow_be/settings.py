@@ -30,14 +30,15 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True if os.environ['MODE'] == 'dev' else False
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['localhost']
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    'https://willows.netlify.app'
+    'https://willows.netlify.app',
+    'https://willow-be.herokuapp.com'
 ]
 
 # Application definition
@@ -102,10 +103,11 @@ WSGI_APPLICATION = 'django_willow_be.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600)
-}
+# DATABASES = {
+#     'default': dj_database_url.config(conn_max_age=600)
+# }
 
+DATABASES['default'] = dj_database_url.parse('postgres://mtmqtddhfqtbhm:0eb5b27957f6ab69f001fb2067053cdc5397a4d5dde212966c2200b542de8786@ec2-54-159-175-113.compute-1.amazonaws.com:5432/dqnb7fb5c5tf6')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
