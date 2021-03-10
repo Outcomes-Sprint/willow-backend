@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-import django_on_heroku
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,7 +38,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'https://willows.netlify.app',
-    'https://willow-be.herokuapp.com'
+    'https://willow-be.herokuapp.com',
 ]
 
 # Application definition
@@ -103,11 +103,11 @@ WSGI_APPLICATION = 'django_willow_be.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': dj_database_url.config(conn_max_age=600)
-# }
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=600)
+}
 
-DATABASES['default'] = dj_database_url.parse('postgres://mtmqtddhfqtbhm:0eb5b27957f6ab69f001fb2067053cdc5397a4d5dde212966c2200b542de8786@ec2-54-159-175-113.compute-1.amazonaws.com:5432/dqnb7fb5c5tf6')
+# DATABASES['default'] = dj_database_url.parse('postgres://mtmqtddhfqtbhm:0eb5b27957f6ab69f001fb2067053cdc5397a4d5dde212966c2200b542de8786@ec2-54-159-175-113.compute-1.amazonaws.com:5432/dqnb7fb5c5tf6')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -147,9 +147,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+# STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+# PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -179,4 +179,4 @@ DJOSER = {
 
 
 
-django_on_heroku.settings(locals())
+django_heroku.settings(locals())
